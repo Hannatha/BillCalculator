@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Bill Please</string>
+    <string name="amount">Amount</string>
+    <string name="inputamount">Amount</string>
+    <string name="paxnumber">Num of Pax</string>
+    <string name="paxinput">Number</string>
+    <string name="discountdisplay">Discount (%)</string>
+    <string name="inputDiscount">Discount</string>
+    <string name="totalbillempty">Total Bill:</string>
+    <string name="each_pays">Each Pays:</string>
+</resources>

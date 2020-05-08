@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount"
+            />
+
+        <EditText
+            android:id="@+id/editamount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/inputamount"
+            />
+
+        <TextView
+            android:id="@+id/paxDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/paxnumber"
+            />
+
+        <EditText
+            android:id="@+id/editpax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/paxinput"
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/svstoggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="SVS"
+            android:textOn="SVS" />
+
+        <ToggleButton
+            android:id="@+id/gsttoggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="GST"
+            android:textOn="GST" />
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/discountDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/discountdisplay"
+            />
+
+        <EditText
+            android:id="@+id/editDiscount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/inputDiscount"
+            />
+    <TextView
+        android:id="@+id/totalDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/totalbillempty"
+        />
+    <TextView
+        android:id="@+id/eachpaymentDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/each_pays"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/splittoggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="SPLIT"
+            android:textOn="SPLIT" />
+
+        <ToggleButton
+            android:id="@+id/resettoggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="RESET"
+            android:textOn="RESET" />
+    </LinearLayout>
+
+</LinearLayout>
