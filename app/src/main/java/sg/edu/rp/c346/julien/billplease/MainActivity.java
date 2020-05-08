@@ -2,11 +2,13 @@ package sg.edu.rp.c346.julien.billplease;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editDiscount;
     ToggleButton svstoggle;
     ToggleButton gsttoggle;
-    ToggleButton splittoggle;
-    ToggleButton resettoggle;
+    Button splitbtn;
+    Button resetbtn;
 
 
     @Override
@@ -38,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
         editDiscount = findViewById(R.id.editDiscount);
         svstoggle = findViewById(R.id.svstoggle);
         gsttoggle = findViewById(R.id.gsttoggle);
-        splittoggle = findViewById(R.id.splittoggle);
-        resettoggle = findViewById(R.id.resettoggle);
+        splitbtn = findViewById(R.id.splitbtn);
+        resetbtn = findViewById(R.id.resetbtn);
 
-        splittoggle.setOnClickListener(new View.OnClickListener(){
+        splitbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(editAmount.getText().toString().trim().length() !=0 && editPax.getText().toString().trim().length() !=0){
-                    double newAmt=0;
+                if(editAmount.getText().toString().trim().length() !=0 && editPax.getText().toString().trim().length() !=0 && !editAmount.getText().toString().equals("0") && !editPax.getText().toString().equals("0")){
+                    double newAmt;
                     if(!svstoggle.isChecked() && !gsttoggle.isChecked()){
                         newAmt = Double.parseDouble(editAmount.getText().toString());
                     }
@@ -61,17 +63,40 @@ public class MainActivity extends AppCompatActivity {
                     if (editDiscount.getText().toString().trim().length() !=0){
                         newAmt *= 1 - Double.parseDouble(editDiscount.getText().toString()) / 100;
                     }
-                    totalbillDisplay.setText("Total Bill: $" + String.format("%.2f",newAmt));
+                    totalbillDisplay.setText(R.string.totalbill+ String.format("%.2f",newAmt));
                     int personpax = Integer.parseInt(editPax.getText().toString());
                     if(personpax !=1){
-                        eachpaymentDisplay.setText("Each pays: $" + String.format("%.2f",newAmt/personpax));
+                        eachpaymentDisplay.setText(R.string.each_pays + String.format("%.2f",newAmt/personpax));
                     }
                     else{
                         eachpaymentDisplay.setText("Each pays: $" + newAmt);
                     }
                 }
+                else {
+                    Toast toast = Toast.makeText(MainActivity.this, "Amount and pax cannot be empty!", Toast.LENGTH_SHORT);
+                    TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
+                    toastMessage.setTextColor(Color.RED);
+                    toast.show();
+                }
             }
         });
+        resetbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast toast2 = Toast.makeText(MainActivity.this, "Calculation has been reset", Toast.LENGTH_SHORT);
+                TextView toastMessage = (TextView) toast2.getView().findViewById(android.R.id.message);
+                toastMessage.setTextColor(Color.RED);
+                toast2.show();
+                editDiscount.getText().clear();
+                editAmount.getText().clear();
+                editPax.getText().clear();
+                totalbillDisplay.setText(R.string.totalbill);
+                eachpaymentDisplay.setText(R.string.each_pays);
+                svstoggle.setChecked(false);
+                gsttoggle.setChecked(false);
+            }
+        });
+
 
     }
 }

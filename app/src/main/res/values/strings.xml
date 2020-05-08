@@ -6,6 +6,6 @@
     <string name="paxinput">Number</string>
     <string name="discountdisplay">Discount (%)</string>
     <string name="inputDiscount">Discount</string>
-    <string name="totalbillempty">Total Bill:</string>
+    <string name="totalbill">Total Bill:</string>
     <string name="each_pays">Each Pays:</string>
 </resources>
